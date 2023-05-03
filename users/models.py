@@ -9,4 +9,4 @@ class User(AbstractUser):
     email = models.EmailField(unique=True, max_length=150)
     password = models.CharField(max_length=150)
     is_employe = models.BooleanField(default=False)
-    available = models.BooleanField(default=True)
+    can_borrow = models.BooleanField(default=True)
