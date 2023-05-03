@@ -8,3 +8,4 @@ class User(AbstractUser):
     password = models.CharField(max_length=150)
     is_employe = models.BooleanField(default=False)
     available = models.BooleanField(default=True)
+    
