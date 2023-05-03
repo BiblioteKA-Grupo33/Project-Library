@@ -9,3 +9,4 @@ class Book(models.Model):
     realese_date = models.DateField()
     synopsis = models.TextField()
     author = models.CharField(max_length=50)
+    quantity = models.PositiveIntegerField()
