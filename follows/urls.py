@@ -3,5 +3,5 @@ from . import views
 from .views import FollowView
 
 urlpatterns = [
-    path("follow/<int:pk>/", views.FollowView.as_view()),
+    path("follow/<uuid:pk>/", views.FollowView.as_view()),
 ]
