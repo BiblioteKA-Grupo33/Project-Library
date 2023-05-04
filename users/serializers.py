@@ -29,7 +29,8 @@ class UserSerializer(serializers.ModelSerializer):
             "username",
             "email",
             "password",
-            "is_superuser",
+            "is_employe",
+            "can_borrow"
         ]
         extra_kwargs = {
             "password": {"write_only": True},

@@ -2,7 +2,6 @@ from rest_framework import serializers
 
 from .models import Book
 
-
 class BooksSerializer(serializers.ModelSerializer):
     def update(self, instance: Book, validated_data: dict) -> Book:
         for key, value in validated_data.items():
@@ -21,4 +20,5 @@ class BooksSerializer(serializers.ModelSerializer):
             "realese_date",
             "synopsis",
             "author",
+            "quantity"
         ]
