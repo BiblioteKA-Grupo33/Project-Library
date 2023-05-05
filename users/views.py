@@ -6,7 +6,7 @@ from rest_framework.permissions import IsAuthenticated
 from users.permission import IsUserOrAdmin
 
 
-class UserView(generics.CreateAPIView):
+class UserView(generics.ListCreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
