@@ -1,8 +1,8 @@
 from rest_framework import serializers
 from rest_framework.validators import UniqueValidator
+from loans.serializers import LoansSerializer
 from .models import User
 from django.contrib.auth.hashers import make_password
-
 
 class UserSerializer(serializers.ModelSerializer):
     def create(self, validated_data: dict) -> User:
@@ -22,6 +22,8 @@ class UserSerializer(serializers.ModelSerializer):
 
         return instance
 
+    historic = LoansSerializer(many=True, read_only=True)
+    
     class Meta:
         model = User
         fields = [
@@ -29,9 +31,12 @@ class UserSerializer(serializers.ModelSerializer):
             "username",
             "email",
             "password",
-            "is_superuser",
+            "is_employe",
+            "can_borrow",
+            "historic"
         ]
         extra_kwargs = {
+            "is_superuser": {"read_only": True},
             "password": {"write_only": True},
             "username": {
                 "validators": [
