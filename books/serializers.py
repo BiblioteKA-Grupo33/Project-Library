@@ -29,4 +29,5 @@ class BooksSerializer(serializers.ModelSerializer):
             "realese_date",
             "synopsis",
             "author",
+            "quantity"
         ]
