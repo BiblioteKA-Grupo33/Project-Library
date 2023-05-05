@@ -1,5 +1,4 @@
 from rest_framework import serializers
-
 from copys.serializers import CopySerializer
 from .models import Loan
 
@@ -27,6 +26,7 @@ class LoansSerializer(serializers.ModelSerializer):
             "borrowed_date",
             "devolution_date",
             "is_devoluted",
+            "blocked_until",
             "copy",
             "user_id",
         ]
