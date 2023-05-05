@@ -1,8 +1,8 @@
 from django.db import models
 import uuid 
 
-class Loan(models.Model):
-    id = id = models.UUIDField(default=uuid.uuid4, primary_key=True, editable=False)
+class Loans(models.Model):
+    id = models.UUIDField(default=uuid.uuid4, primary_key=True, editable=False)
     borrowed_date  = models.DateTimeField(null=True)
     devolution_date  = models.DateTimeField(null=True)
     is_devoluted = models.BooleanField(null=True, default=False)

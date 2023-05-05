@@ -36,6 +36,7 @@ class UserSerializer(serializers.ModelSerializer):
             "historic"
         ]
         extra_kwargs = {
+            "is_superuser": {"read_only": True},
             "password": {"write_only": True},
             "username": {
                 "validators": [
