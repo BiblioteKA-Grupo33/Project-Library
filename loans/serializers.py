@@ -1,32 +1,32 @@
 from rest_framework import serializers
-from .models import Loans
-from datetime import date, timedelta
 
+from copys.serializers import CopySerializer
+from .models import Loan
+
+import ipdb
 
 class LoansSerializer(serializers.ModelSerializer):
-    def create(self, validated_data: dict) -> Loans:
-        
-        return Loans.objects.create(**validated_data)
+    def create(self, validated_data: dict) -> Loan:
+        return Loan.objects.create(**validated_data)
     
-    def update(self, instance: Loans, validated_data: dict) -> Loans:
-        validated_data = {
-            "borrowed_date": date.today(),
-            "devolution_date": date.today() + timedelta(days=1)
-        }
-
+    def update(self, instance: Loan, validated_data: dict) -> Loan:
+        
         for key, value in validated_data.items():
             setattr(instance, key, value)
 
         instance.save()
 
         return instance
-
+    
+    copy = CopySerializer(read_only=True)
+    
     class Meta:
-        model = Loans
+        model = Loan
         fields= [
+            "id",
             "borrowed_date",
             "devolution_date",
             "is_devoluted",
-            "copy_id"
-            "user_id"
+            "copy",
+            "user_id",
         ]

@@ -2,7 +2,6 @@ from rest_framework import serializers
 from copys.models import Copy
 from .models import Book
 
-
 class BooksSerializer(serializers.ModelSerializer):
     def create(self, validated_data: dict) -> Book:
         new_book = Book.objects.create(**validated_data)
