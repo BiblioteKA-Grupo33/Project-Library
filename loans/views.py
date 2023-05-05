@@ -54,7 +54,7 @@ class LoansUserView(generics.RetrieveUpdateDestroyAPIView, generics.CreateAPIVie
         if self.queryset.filter(copy=copy, is_devoluted=False):
             raise TypeError("ja emprestado")
 
-        for borrowed in user.borroweds.all():
+        for borrowed in user.historic.all():
             today = datetime.today().date()
             if (
                 not borrowed.is_devoluted

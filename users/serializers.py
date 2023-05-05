@@ -22,7 +22,7 @@ class UserSerializer(serializers.ModelSerializer):
 
         return instance
 
-    borroweds = LoansSerializer(many=True, read_only=True)
+    historic = LoansSerializer(many=True, read_only=True)
     
     class Meta:
         model = User
@@ -33,7 +33,7 @@ class UserSerializer(serializers.ModelSerializer):
             "password",
             "is_employe",
             "can_borrow",
-            "borroweds"
+            "historic"
         ]
         extra_kwargs = {
             "password": {"write_only": True},
