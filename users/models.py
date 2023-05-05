@@ -10,3 +10,9 @@ class User(AbstractUser):
     password = models.CharField(max_length=150)
     is_employe = models.BooleanField(default=False)
     can_borrow = models.BooleanField(default=True)
+
+    follows = models.ManyToManyField(
+        "users.User",
+        through="follows.Follow",
+        related_name="follow_user",
+    )
