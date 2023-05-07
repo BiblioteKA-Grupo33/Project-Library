@@ -31,7 +31,7 @@ class LoansAdminView(generics.RetrieveUpdateDestroyAPIView, generics.CreateAPIVi
         loan = get_object_or_404(Loan, pk=self.kwargs["pk"])
         if not loan.borrowed_date:
             borrowed_date = datetime.today()
-            devolution_date = borrowed_date - timedelta(days=7)
+            devolution_date = borrowed_date + timedelta(days=7)
 
             while devolution_date.weekday() >= 5:
                 devolution_date += timedelta(days=1)
