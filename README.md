@@ -51,22 +51,22 @@ Esta aplicação contém relacionamentos com banco de dados. O objetivo dela é 
 ## Infos da Api
 
 Caso queira ter uma visão ampla das rotas e fazer testes da mesma acesse o link abaixo:<br>
-<a href= https://biblioteka-grupo33.onrender.com/api/schema/swagger/ blank=true>Documentação Api</a><br>
+<a href= https://biblioteka-grupo33.onrender.com/api/schema/swagger/ target_blank=true>Documentação Api</a><br>
 É importante deixar claro que algumas rotas requer permissão de admin ou seja usuários normais não consiguirão fazer algumas requisições
 
 ## Contribuidores
 Emanuel Luiz de Adrade<br>
-Linkedin: <a href=https://www.linkedin.com/in/emanuelluiz/>Linkedin Emanuel</a><br>
-Github: <a href=https://github.com/emanuelluiz01>Github Emanuel<a/>
+Linkedin: <a href=https://www.linkedin.com/in/emanuelluiz/ target_blank=true>Linkedin Emanuel</a><br>
+Github: <a href=https://github.com/emanuelluiz01 target_blank=true>Github Emanuel<a/>
 
 Gabriel de Lima Santana<br>
-Linkedin: <a href=https://www.linkedin.com/in/gabrieldelimasantana/>Linkedin GAbriel de Lima</a><br>
-Github: <a href=https://github.com/Gabriel-Dev>Github Gabriel de Lima<a/>
+Linkedin: <a href=https://www.linkedin.com/in/gabrieldelimasantana/ target_blank=true>Linkedin GAbriel de Lima</a><br>
+Github: <a href=https://github.com/Gabriel-Dev target_blank=true>Github Gabriel de Lima<a/>
 
 Gabriel dos Santos<br>
-Linkedin: <a href=https://www.linkedin.com/in/gabrieldossantosmachado>Linkedin Gabriel dos Santos</a><br>
-Github: <a href=https://github.com/bielssinho>Github Gabriel dos Santos<a/>
+Linkedin: <a href=https://www.linkedin.com/in/gabrieldossantosmachado target_blank=true>Linkedin Gabriel dos Santos</a><br>
+Github: <a href=https://github.com/bielssinho target_blank=true>Github Gabriel dos Santos<a/>
 
 Iarley Lopes Cavalcante<br>
-Linkedin: <a href=https://www.linkedin.com/in/iarley-lopes-b19100246/>Linkedin Iarley</a><br>
-Github: <a href=https://github.com/iarley1>Github Iarley<a/>
+Linkedin: <a href=https://www.linkedin.com/in/iarley-lopes-b19100246/ target_blank=true>Linkedin Iarley</a><br>
+Github: <a href=https://github.com/iarley1 target_blank=true>Github Iarley<a/>
