@@ -1,12 +1,12 @@
 from django.shortcuts import get_object_or_404
 from books.permission import IsAdminOrReadOnly
-from loans.exceptions import alreadyBorrowed
+from loans.exceptions import alreadyBorrowed, alreadyDevoluted, blockedUser
 from loans.permissions import IsAdminOrLoanOwner
 from .models import Loan
 from copys.models import Copy
 from .serializers import LoansSerializer
 from rest_framework import generics
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from datetime import datetime, timedelta
 from rest_framework.response import Response
@@ -14,7 +14,7 @@ from rest_framework import status
 
 class LoansView(generics.ListCreateAPIView):
     authentication_classes = [JWTAuthentication]
-    permission_classes = [IsAuthenticated, IsAdminOrReadOnly]
+    permission_classes = [IsAuthenticated, IsAdminUser]
 
     queryset = Loan.objects.all()
     serializer_class = LoansSerializer
@@ -38,7 +38,7 @@ class LoansAdminView(generics.RetrieveUpdateDestroyAPIView, generics.CreateAPIVi
 
             serializer.save(borrowed_date=borrowed_date, devolution_date=devolution_date)
         else:
-            raise TypeError("ja emprestado")
+            raise alreadyBorrowed
 
 
 class LoansUserView(generics.RetrieveUpdateDestroyAPIView, generics.CreateAPIView):
@@ -71,7 +71,7 @@ class LoansUserView(generics.RetrieveUpdateDestroyAPIView, generics.CreateAPIVie
         if user.can_borrow:
             serializer.save(copy=copy, user=user)
         else:
-            raise TypeError("não pode alugar")
+            raise blockedUser
 
     def perform_update(self, serializer):
         loan = get_object_or_404(Loan, pk=self.kwargs["pk"])
@@ -82,6 +82,6 @@ class LoansUserView(generics.RetrieveUpdateDestroyAPIView, generics.CreateAPIVie
         elif(not loan.is_devoluted):
             serializer.save(is_devoluted=True)
         else:
-            raise TypeError("ja foi devolvido")
+            raise alreadyDevoluted
         
         
