@@ -1,17 +1,20 @@
-class alreadyBorrowed(Exception):
-    def __init__(self):
-        self.message = "copy is already borrowed"
-        
-        super().__init__(self.message)
+from rest_framework.exceptions import APIException
+
+class alreadyBorrowed(APIException):
+    status_code = 400
+    default_detail = "copy is already borrowed."
+    default_code = "service_unavailable"
+
+class blockedUser(APIException):
+    status_code = 400
+    default_detail = "user cannot borrow."
+    default_code = "service_unavailable"
+
+class alreadyDevoluted(APIException):
+    status_code = 400
+    default_detail = "copy is already devoluted."
+    default_code = "service_unavailable"
 
 
-class InvalidYearCupError(Exception):
-    def __init__(self):
-        self.message = "there was no world cup this year"
-        super().__init__(self.message)
 
 
-class ImpossibleTitlesError(Exception):
-    def __init__(self):
-        self.message = "impossible to have more titles than disputed cups"
-        super().__init__(self.message)
