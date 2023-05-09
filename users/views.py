@@ -8,7 +8,7 @@ from users.permission import IsAdminOrLoanOwner, IsUserOrAdmin
 
 class UserView(generics.ListCreateAPIView):
     authentication_classes = [JWTAuthentication]
-    permission_classes = [IsAuthenticated, IsAdminOrLoanOwner]
+    permission_classes = [IsAdminOrLoanOwner]
     
     queryset = User.objects.all()
     serializer_class = UserSerializer
