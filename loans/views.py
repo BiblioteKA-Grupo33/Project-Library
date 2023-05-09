@@ -9,8 +9,6 @@ from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from datetime import datetime, timedelta
-from rest_framework.response import Response
-from rest_framework import status
 
 class LoansView(generics.ListCreateAPIView):
     authentication_classes = [JWTAuthentication]
@@ -26,7 +24,7 @@ class LoansAdminView(generics.RetrieveUpdateDestroyAPIView, generics.CreateAPIVi
 
     queryset = Loan.objects.all()
     serializer_class = LoansSerializer
-
+    
     def perform_update(self, serializer):
         loan = get_object_or_404(Loan, pk=self.kwargs["pk"])
         if not loan.borrowed_date:
