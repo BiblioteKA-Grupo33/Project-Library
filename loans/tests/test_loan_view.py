@@ -5,7 +5,8 @@ from users.models import User
 from books.models import Book
 from rest_framework_simplejwt.tokens import RefreshToken
 
-import ipdb
+import warnings
+warnings.filterwarnings("ignore", category=RuntimeWarning)
 
 class AccountViewsTest(APITestCase):
     @classmethod
